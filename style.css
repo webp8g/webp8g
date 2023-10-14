@@ -1,0 +1,255 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #001f24;
+    color: rgb(214, 214, 214);
+    overflow-x: hidden;
+}
+
+#con {
+    width: 80%;
+    margin: 50px auto 0px;
+}
+
+svg {
+    float: left;
+    fill: #1dd755;
+  }
+
+nav {
+    padding: 20px 0 0;
+    margin-bottom: 50px;
+}
+
+nav > ul {
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+    margin: 0 auto;
+    margin-right: 0;
+}
+
+nav > ul > li {
+    flex-grow: 1;
+    list-style-type: none;
+    text-align: center;
+}
+
+nav > ul > li >a {
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #25788d;
+    transition: color 0.2s;
+}
+nav > ul > li >a:hover{
+    color: #1eacff;
+}
+
+.i-con{
+    position: relative;
+}
+
+main #img1{
+    width: 70vw;
+}
+
+@keyframes bt {
+    from{left: 22.8vw;}
+    to{left: 65vw;}
+}
+
+main #bt{
+    width: 8vw;
+    position: absolute;
+    top: -5%;
+    animation: bt 2s ease-in-out ;
+    left: 65vw;
+}
+
+.m-text {
+    position: absolute;
+    right: 15vw;
+    top: 250px;
+}
+
+
+
+
+
+main h3{
+    font-weight: normal;
+    opacity: 0;
+    animation: text 1.6s ease-out forwards 3s;
+    color: #1eacff;
+}
+
+main h1{
+    color: #1dd755;
+    opacity: 0;
+    animation: text 1.3s ease-in-out forwards 0.8s;
+}
+
+@keyframes text{
+    from{opacity: 0;transform: translateX(-100%);}
+    to{opacity: 1; transform: translateX(0);}
+}
+
+@keyframes sct{
+    0%{transform: scale(0);opacity: 0;}
+    50%{transform: scale(0.05);opacity: 0.05;}
+    100%{transform: scale(1);}
+}
+
+main p{margin: 50px 0 0; width: 320px;font-size: 1rem;color: #e1e1e1; 
+        transform: scale(0);
+        animation: sct 1.6s ease-in-out forwards 1.1s ;
+}
+
+
+
+
+.info {padding: 0 10%;padding-bottom: 50px;color: #25788d;}
+.h-i{
+    margin: 50px 0;
+    color: #1dd755;
+}
+.h-i h2{
+    margin-bottom: 20px;
+}
+
+
+
+footer{
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #002b32;
+    padding: 5% 10% 3%;
+    border-radius: 30px 30px 0 0 ;
+}
+footer .f-col{
+    flex: 0 0 auto;
+    max-width: 30%;
+}
+footer .f-col:first-child h3{
+    font-size: 2rem;
+    margin-left: 50px;
+}
+footer .contact {
+    fill: #c1c1c1;
+    margin-right: 10px;
+}
+
+footer li {
+    list-style-type: none;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+footer a{text-decoration: none;color: white;opacity: 0.7;}
+footer a:hover{
+    opacity: 1;
+}
+footer svg{fill:#fff; }
+footer h3{
+    margin-bottom: 20px;
+}
+footer p{
+    flex-basis: 100%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 880px){
+    #con {width: 100%;}
+    header{width: 80%;margin: 0 auto;}
+    footer{display: block;}
+    footer .f-col{min-width: 100%};
+    footer h3{margin-top: 40px;}
+    .i-con{margin-top: 100px; position: relative; left:50px }
+    .m-text{position: relative;top: 30px;left: 50px;}
+    .info{position: relative; top: 100px;left: 20px;margin-bottom: 90px;}
+}
+
+
+
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #dddddd;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 1;
+    display: none;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+
+@media (max-width: 700px){
+    .hamburger{display: block;position: relative;top: -40px;float: right;}
+    .hamburger.active .bar {
+        background-color:  #55C6E2;
+        transition: all 0.3s ease-in-out;;
+      }
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+      }
+      .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+      }
+      .nav-menu.closing{
+        left: -100%;
+      }
+    
+      .nav-menu{
+        position: fixed;
+        left: 0;
+        top: -100%;
+        padding: 50px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #003534;
+        width: 100%;
+        text-align: center;
+        transition: 0.5s;
+        z-index: 2;
+      }
+    
+      .nav-item{
+        margin: 16px 0;
+      }
+    
+      .nav-menu.active{
+        top: 0;
+      }
+}
