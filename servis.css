@@ -1,0 +1,61 @@
+#map{
+    height: 80vh;
+    width: 80vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    overflow: hidden;
+    background-color: rgb(5, 38, 42);
+}
+#svg1 {
+    float: none;
+    position: relative;
+    cursor: move;
+}
+
+.controls{display:flex;justify-content: center; margin-bottom: 100px;}
+button{
+    margin: 20px 5px;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(0, 51, 255);border: none;
+    cursor: pointer;
+}
+
+.bod{
+    width: 300%;
+    fill: #00ff4c;
+    cursor: pointer;
+}
+
+
+.h {
+  animation: moveUpDown 1.3s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+@keyframes moveUpDown {
+  0% {
+      transform: translateY(0); 
+  }
+  100% {
+      transform: translateY(3px);
+  }
+}
+
+.text{
+  display: none;
+}
+
+.bod:active + .text{
+  display: block;
+}
+
+.vs h2{
+  font-size: initial;
+}
+.vs p{
+  font-weight: lighter;
+}
