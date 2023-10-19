@@ -32,6 +32,50 @@ window.addEventListener('scroll', () => {
       hamburger.classList.remove('active');
       isMenuOpen = false;
     }
-  }, 150); // Delay of 300 milliseconds (adjust as needed)
+  }, 150); 
 });
+
+
+const svgMap = document.getElementById('svg-m');
+const svg = svgMap.querySelector('#svg1');
+
+let isDragging = false;
+let startPoint = { x: 0, y: 0 };
+let panX = 0;
+let panY = 0;
+let zoomLevel = 1.0;
+
+function zoom(direction) {
+
+  if (direction === 'in') {
+    zoomLevel *= 1.2;
+  } else if (direction === 'out') {
+    zoomLevel /= 1.2;
+  }
+
+  svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
+}
+
+function startPan(event) {
+  isDragging = true;
+  startPoint = { x: event.clientX, y: event.clientY };
+}
+
+function pan(event) {
+  if (!isDragging) return;
+
+  panX += event.clientX - startPoint.x;
+  panY += event.clientY - startPoint.y;
+  startPoint = { x: event.clientX, y: event.clientY };
+
+  svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
+}
+
+function endPan() {
+  isDragging = false;
+}
+
+svgMap.addEventListener('mousedown', startPan);
+document.addEventListener('mousemove', pan);
+document.addEventListener('mouseup', endPan);
 
