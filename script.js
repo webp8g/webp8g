@@ -37,8 +37,8 @@
 
 
 
-  const svgMap = document.getElementById('svg-m');
-const svg = svgMap.querySelector('#svg-m');
+const svgMap = document.getElementById('svg-m');
+const svg = svgMap.querySelector('#svg1');
 
 let isDragging = false;
 let startPoint = { x: 0, y: 0 };
@@ -90,10 +90,11 @@ function getEventPoint(event) {
   }
 }
 
+svgMap.addEventListener('mousedown', startPan);
+document.addEventListener('mousemove', pan);
+document.addEventListener('mouseup', endPan);
+
+// Handle touch events
 svgMap.addEventListener('touchstart', startPan);
-document.addEventListener('touchmove', function(event) {
-  if (isDragging) {
-    event.preventDefault();
-  }
-});
+document.addEventListener('touchmove', pan);
 document.addEventListener('touchend', endPan);
