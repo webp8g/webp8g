@@ -46,7 +46,6 @@ let panY = 0;
 let zoomLevel = 1.0;
 
 function zoom(direction) {
-
   if (direction === 'in') {
     zoomLevel *= 1.2;
   } else if (direction === 'out') {
@@ -57,8 +56,10 @@ function zoom(direction) {
 }
 
 function startPan(event) {
-  isDragging = true;
-  startPoint = { x: event.clientX, y: event.clientY };
+  if (isInsideSVG(event)) {
+    isDragging = true;
+    startPoint = getEventPoint(event);
+  }
 }
 
 function pan(event) {
@@ -73,6 +74,13 @@ function pan(event) {
 
 function endPan() {
   isDragging = false;
+}
+
+function isInsideSVG(event) {
+  const rect = svg.getBoundingClientRect();
+  const x = event.clientX;
+  const y = event.clientY;
+  return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
 
 function getEventPoint(event) {
