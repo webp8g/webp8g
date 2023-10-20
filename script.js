@@ -75,6 +75,24 @@ function endPan() {
   isDragging = false;
 }
 
+function getEventPoint(event) {
+  if (event.touches && event.touches.length) {
+    return {
+      x: event.touches[0].clientX,
+      y: event.touches[0].clientY,
+    };
+  } else {
+    return {
+      x: event.clientX,
+      y: event.clientY,
+    };
+  }
+}
+
+svgMap.addEventListener('touchstart', startPan);
+document.addEventListener('touchmove', pan);
+document.addEventListener('touchend', endPan);
+
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
 document.addEventListener('mouseup', endPan);
