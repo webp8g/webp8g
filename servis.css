@@ -1,6 +1,3 @@
-body{
-    touch-action: none;
-}
 #map{
     height: 80vh;
     width: 80vw;
@@ -16,7 +13,6 @@ body{
     float: none;
     position: relative;
     cursor: move;
-    touch-action: pan-x pan-y;
 }
 
 .controls{display:flex;justify-content: center; margin-bottom: 100px;}
