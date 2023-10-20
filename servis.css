@@ -59,3 +59,8 @@ button{
 .vs p{
   font-weight: lighter;
 }
+
+@media (max-width: 880px){
+  #map{height: 60vh;}
+  
+}
