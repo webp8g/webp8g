@@ -61,6 +61,6 @@ button{
 }
 
 @media (max-width: 880px){
-  #map{height: 60vh;}
+  #map{height: 80vw;}
   
 }
