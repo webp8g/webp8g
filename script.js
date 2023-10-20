@@ -37,68 +37,66 @@
 
 
 
-const svgMap = document.getElementById('svg-m');
-const svg = svgMap.querySelector('#svg1');
+  const svgMap = document.getElementById('svg-m');
+  const svg = svgMap.querySelector('#svg1');
 
-let isDragging = false;
-let startPoint = { x: 0, y: 0 };
-let panX = 0;
-let panY = 0;
-let zoomLevel = 1.0;
+  let isDragging = false;
+  let startPoint = { x: 0, y: 0 };
+  let panX = 0;
+  let panY = 0;
+  let zoomLevel = 1.0;
 
-function zoom(direction) {
-  if (direction === 'in') {
-    zoomLevel *= 1.2;
-  } else if (direction === 'out') {
-    zoomLevel /= 1.2;
+  function zoom(direction) {
+    if (direction === 'in') {
+      zoomLevel *= 1.2;
+    } else if (direction === 'out') {
+      zoomLevel /= 1.2;
+    }
+
+    svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
   }
 
-  svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
-}
+  function startPan(event) {
+    isDragging = true;
+    startPoint = getEventPoint(event);
 
-function startPan(event) {
-  isDragging = true;
-  startPoint = getEventPoint(event);
-
-  event.document.body.style.touchAction = 'none';
-}
-
-function pan(event) {
-  if (!isDragging) return;
-
-  const currentPoint = getEventPoint(event);
-  panX += currentPoint.x - startPoint.x;
-  panY += currentPoint.y - startPoint.y;
-  startPoint = currentPoint;
-
-  svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
-}
-
-function endPan(event) {
-  isDragging = false;
-
-  event.document.body.style.touchAction = 'auto';
-}
-
-function getEventPoint(event) {
-  if (event.touches && event.touches.length) {
-    return {
-      x: event.touches[0].clientX,
-      y: event.touches[0].clientY,
-    };
-  } else {
-    return {
-      x: event.clientX,
-      y: event.clientY,
-    };
+    event.preventDefault();
   }
-}
 
-svgMap.addEventListener('mousedown', startPan);
-document.addEventListener('mousemove', pan);
-document.addEventListener('mouseup', endPan);
+  function pan(event) {
+    if (!isDragging) return;
 
-// Handle touch events
-svgMap.addEventListener('touchstart', startPan);
-document.addEventListener('touchmove', pan);
-document.addEventListener('touchend', endPan);
+    const currentPoint = getEventPoint(event);
+    panX += currentPoint.x - startPoint.x;
+    panY += currentPoint.y - startPoint.y;
+    startPoint = currentPoint;
+
+    svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
+  }
+
+  function endPan() {
+    isDragging = false;
+  }
+
+  function getEventPoint(event) {
+    if (event.touches && event.touches.length) {
+      return {
+        x: event.touches[0].clientX,
+        y: event.touches[0].clientY,
+      };
+    } else {
+      return {
+        x: event.clientX,
+        y: event.clientY,
+      };
+    }
+  }
+
+  svgMap.addEventListener('mousedown', startPan);
+  document.addEventListener('mousemove', pan);
+  document.addEventListener('mouseup', endPan);
+
+
+  svgMap.addEventListener('touchstart', startPan);
+  document.addEventListener('touchmove',pan);
+  document.addEventListener('touchend', endPan);
