@@ -8,8 +8,8 @@
     padding: 50px 0;
     overflow: hidden;
     background-color: rgb(5, 38, 42);
-    touch-action:none;
 }
+#svg-m{touch-action:none}
 #svg1 {
     float: none;
     position: relative;
