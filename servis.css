@@ -1,5 +1,5 @@
 body{
-    touch-action: auto;
+    touch-action: none;
 }
 #map{
     height: 80vh;
