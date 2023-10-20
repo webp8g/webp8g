@@ -8,11 +8,13 @@
     padding: 50px 0;
     overflow: hidden;
     background-color: rgb(5, 38, 42);
+    touch-action: none;
 }
 #svg1 {
     float: none;
     position: relative;
     cursor: move;
+    touch-action: pan-x pan-y;
 }
 
 .controls{display:flex;justify-content: center; margin-bottom: 100px;}
