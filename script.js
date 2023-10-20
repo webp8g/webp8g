@@ -65,6 +65,8 @@ function startPan(event) {
 function pan(event) {
   if (!isDragging) return;
 
+  event.preventDefault();
+
   panX += event.clientX - startPoint.x;
   panY += event.clientY - startPoint.y;
   startPoint = { x: event.clientX, y: event.clientY };
