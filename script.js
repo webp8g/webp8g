@@ -98,10 +98,6 @@
   svgMap.addEventListener('touchstart', startPan);
 
 
-  document.addEventListener('touchmove', function(event) {
-    if (isDragging) {
-      event.preventDefault();
-    }
-  });
+  document.addEventListener('touchmove',pan);
 
   document.addEventListener('touchend', endPan);
