@@ -25,9 +25,7 @@ button{
 }
 
 .bod{
-    width: 300%;
     fill: #00ff4c;
-    cursor: pointer;
 }
 
 
@@ -45,22 +43,22 @@ button{
   }
 }
 
-.text{
-  display: none;
+
+
+.pt h3{
+  margin-bottom: 50px;
 }
 
-.bod:active + .text{
-  display: block;
-}
+.location-image{cursor: pointer;}
 
-.vs h2{
-  font-size: initial;
-}
-.vs p{
-  font-weight: lighter;
+#location-info{
+  position: absolute;
+  color: #00ff4c;
+  font-size: large;
+  background-color: rgb(40, 15, 121);
 }
 
 @media (max-width: 880px){
   #map{height: 80vw;}
-  
+  .pt{padding: 40px;font-size: 4vw;}
 }
