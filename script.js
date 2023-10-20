@@ -59,6 +59,8 @@ function zoom(direction) {
 function startPan(event) {
   isDragging = true;
   startPoint = getEventPoint(event);
+
+  document.body.style.touchAction = 'none';
 }
 
 function pan(event) {
@@ -74,6 +76,8 @@ function pan(event) {
 
 function endPan() {
   isDragging = false;
+
+  document.body.style.touchAction = 'auto';
 }
 
 function getEventPoint(event) {
