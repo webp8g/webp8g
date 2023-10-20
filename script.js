@@ -60,7 +60,7 @@ function startPan(event) {
   isDragging = true;
   startPoint = getEventPoint(event);
 
-  document.body.style.touchAction = 'none';
+  event.document.body.style.touchAction = 'none';
 }
 
 function pan(event) {
@@ -74,10 +74,10 @@ function pan(event) {
   svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
 }
 
-function endPan() {
+function endPan(event) {
   isDragging = false;
 
-  document.body.style.touchAction = 'auto';
+  event.document.body.style.touchAction = 'auto';
 }
 
 function getEventPoint(event) {
