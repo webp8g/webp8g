@@ -60,7 +60,9 @@ function startPan(event) {
   isDragging = true;
   startPoint = getEventPoint(event);
 
-  event.preventDefault();
+  if (!event.target.classList.contains('location-image')) {
+    event.preventDefault(); 
+  }
 }
 
 function pan(event) {
@@ -92,6 +94,8 @@ function getEventPoint(event) {
   }
 }
 
+
+
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
 document.addEventListener('mouseup', endPan);
@@ -110,43 +114,28 @@ document.addEventListener('touchend', endPan);
 
 const locations = [
   {
-    name: "Smreková 5",
+    name: "Imatra 1",
   },
   {
-    name: "Ružová 42",
+    name: "Ľ  . Štúra 62",
   },
   {
-    name: "J.Bánika 2",
-  },
-  {
-    name: "M.R.Štefánika 7",
-  },
-  {
-    name: "M.R.Štefánika 10",
-  },
-  {
-    name: "Námestie slobody 20",
-  },
-  {
-    name: "Námestie SNP 36 (city cafe)",
-  },
-  {
-    name: "V.P Tótha 14",
-  },
-  {
-    name: "P.O.Hviezdoslava 7",
+    name: "Alexandra Nográdyho 31",
   },
   {
     name: "T. G. Masaryka 24 ( Technická univerzita)",
   },
   {
-    name: "Ľ. Štúra 62",
+    name: "M.R.Štefánika 7",
   },
   {
-    name: "Imatra 1",
+    name: "Námestie slobody 20",
   },
   {
-    name: "Alexandra Nográdyho 31",
+    name: "Námestie SNP 36 (city caffe)",
+  },
+  {
+    name: "P.O.Hviezdoslava 7",
   },
   {
     name: "Kuzmányho nábrežie 28 (nemocnica)",
@@ -155,10 +144,19 @@ const locations = [
     name: "9.Mája 7",
   },
   {
-    name: "A.Hlinku 4",
+    name: "J.Bánika 2",
+  },
+  {
+    name: "Smreková 5",
+  },
+  {
+    name: "Ružová 42",
   },
   {
     name: "A.Hlinku 27",
+  },
+  {
+    name: "A.Hlinku 4",
   },
   {
     name: "J. Jesenského 49",
@@ -167,78 +165,79 @@ const locations = [
     name: "Lučenecká cesta 15",
   },
   {
-    name: "Okružná 117",
+    name: "Obrancov mieru 46",
   },
   {
-    name: "Obrancov mieru 46",
+    name: "Okružná 117",
   },
   {
     name: "Generála svobodu 19",
   },
   {
     name: "Javorová 8",
+  },
+  {
+    name: "V.P Tótha 14",
+  },
+  {
+    name: "M.R.Štefánika 10",
   }
 ];
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-const locationInfo = document.getElementById("location-info");
-const locationName = document.getElementById("location-name");
-const locationImages = document.querySelectorAll(".location-image");
-let isInfoVisible = false;
+  const locationInfo = document.getElementById("location-info");
+  const locationName = document.getElementById("location-name");
+  const locationImages = document.querySelectorAll(".location-image");
+  let isInfoVisible = false;
 
-function showLocationInfo(locationIndex) {
-  const location = locations[locationIndex];
-  locationName.textContent = location.name;
-  locationInfo.style.display = "block";
-  locationInfo.style.padding = "5px";
-  isInfoVisible = true;
-}
+  function showLocationInfo(locationIndex) {
+    const location = locations[locationIndex];
+    locationName.textContent = location.name;
+    locationInfo.style.display = "block";
+    locationInfo.style.padding = "5px";
 
-function hideLocationInfo() {
-  locationInfo.style.display = "none";
-  isInfoVisible = false;
-}
-
-
-locationImages.forEach((image) => {
-  image.addEventListener("mouseenter", function () {
-    showLocationInfo(this.getAttribute("data-location-index"));
-  });
-
-  image.addEventListener("mouseleave", function () {
-    hideLocationInfo();
-  });
-
-  image.addEventListener("click", function (event) {
-    event.stopPropagation();
-    const locationIndex = this.getAttribute("data-location-index");
-    showLocationInfo(locationIndex);
-  });
-});
-
-document.addEventListener("click", function () {
-  hideLocationInfo();
-});
-
-locationInfo.addEventListener("click", function (event) {
-  event.stopPropagation();
-});
-
-
-locationImages.forEach((image) => {
-  image.addEventListener("touchstart", function (event) {
-    event.preventDefault();
-    const locationIndex = this.getAttribute("data-location-index");
-    showLocationInfo(locationIndex);
-  });
-});
-
-
-document.addEventListener("touchstart", function (event) {
-  if (!locationInfo.contains(event.target) && isInfoVisible) {
-    hideLocationInfo();
+    if (window.matchMedia("(max-width: 880px)").matches) {
+      
+      locationInfo.style.fontSize = "0.9rem";
+      locationInfo.style.maxWidth = "80%";
+    } else {
+      
+      locationInfo.style.fontSize = "1.2rem";
+    }
+    isInfoVisible = true;
   }
+
+  function hideLocationInfo() {
+    locationInfo.style.display = "none";
+    isInfoVisible = false;
+  }
+
+  locationImages.forEach((image) => {
+    image.addEventListener("mouseenter", function () {
+      showLocationInfo(this.getAttribute("data-location-index"));
+    });
+
+    image.addEventListener("mouseleave", function () {
+      if (!isInfoVisible) {
+        hideLocationInfo();
+      }
+    });
+
+    image.addEventListener("touchstart", function (event) {
+      event.preventDefault();
+      const locationIndex = this.getAttribute("data-location-index");
+      showLocationInfo(locationIndex);
+    });
+  });
+
+  document.addEventListener("click", function () {
+    if (isInfoVisible) {
+      hideLocationInfo();
+    }
+  });
+
+
 });
-});
+
