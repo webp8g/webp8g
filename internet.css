@@ -53,9 +53,17 @@ main p{padding: initial;}
     color: #fafafa;
     font-weight: bold;
     font-family: 'quicksand',sans-serif;
-    transform: scale(1);
+    transition: 0.4s;
     margin-bottom: 30px;
 }
+.col button:hover{
+    transform: scale(1.1);
+}
+button a{
+    text-decoration: none;
+    color: #fafafa;
+}
+
 
 @media (max-width: 1090px){
     .row{
