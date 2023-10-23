@@ -45,11 +45,13 @@ let startPoint = { x: 0, y: 0 };
 let panX = 0;
 let panY = 0;
 let zoomLevel = 1.0;
+const maxZoom = 6.0;
+const minZoom = 1.0;
 
 function zoom(direction) {
-  if (direction === 'in') {
+  if (direction === 'in' && zoomLevel < maxZoom) {
     zoomLevel *= 1.2;
-  } else if (direction === 'out') {
+  } else if (direction === 'out' && zoomLevel > minZoom) {
     zoomLevel /= 1.2;
   }
 
