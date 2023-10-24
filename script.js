@@ -97,6 +97,15 @@ function getEventPoint(event) {
 }
 
 
+function toggleAnswer(questionElement) {
+  var answerElement = questionElement.nextElementSibling;
+  if (answerElement.style.display === 'none'|| answerElement.style.display === '') {
+      answerElement.style.display = 'block';
+  } else {
+      answerElement.style.display = 'none';
+  }
+}
+
 
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
