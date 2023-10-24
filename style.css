@@ -256,3 +256,32 @@ footer p{
         top: 0;
       }
 }
+
+.faq{
+    width: 70%;
+    margin: 100px auto;
+}
+.answer {
+    margin-top: 20px;
+    display: none;
+    font-size: 0.8rem;
+    color: #75afd1;
+}
+
+  .question {
+    font-weight: normal;
+    cursor: pointer;
+  } 
+  .fblock {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #1eacff;
+    color: #1eacff;
+    padding: 10px;
+    transition: 0.4s;
+    margin: 40px 0 0;
+}
+    .fblock:hover {
+        color: #1dd755;
+        border: 1px solid #1dd755;
+    }
