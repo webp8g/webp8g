@@ -156,6 +156,7 @@ footer li {
 }
 footer a{text-decoration: none;color: white;opacity: 0.7;}
 footer .f-col:nth-child(-n+2) li:before{content: ">>";margin-right: 10px;}
+footer .f-col:nth-last-child(-n+3) h3{margin-top: 10px;}
 footer a:hover{
     opacity: 1;
 }
