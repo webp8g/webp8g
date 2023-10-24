@@ -156,7 +156,7 @@ footer li {
 }
 footer a{text-decoration: none;color: white;opacity: 0.7;}
 footer .f-col:nth-child(-n+2) li:before{content: ">>";margin-right: 10px;}
-footer .f-col:nth-last-child(-n+3) h3{margin-top: 15px;}
+footer .f-col:nth-last-child(-n+3) h3{margin-top: 18px;}
 footer a:hover{
     opacity: 1;
 }
@@ -175,7 +175,7 @@ footer p{
     header{width: 80%;margin: 0 auto;}
     footer{display: block;}
     footer .f-col{min-width: 100%};
-    footer h3{margin-top: 40px !important;}
+    footer .f-col:nth-last-child(-n+3) h3{margin-top: 40px;}
     .i-con{margin-top: 100px; position: relative; left:50px }
     .m-text{position: relative;top: 10%;left: 50px;}
     .m-text p, .m-text h1{width: 80vw;}
