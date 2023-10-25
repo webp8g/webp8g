@@ -52,7 +52,7 @@ opacity:1;
   margin-top: 50px;
 }
 .pt h4{font-weight:normal;color:#47a1d6 }
-.pt h2:nth-child(2){margin-top: 60px}
+.pt:nth-child(2) h2{margin-top: 60px}
 
 .location-image{cursor: pointer;}
 
