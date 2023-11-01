@@ -37,6 +37,68 @@ window.addEventListener('scroll', () => {
 
 
 
+
+
+const paths = {
+  path1: document.getElementById('path2'),
+  path2: document.getElementById('path3'),
+  path3: document.getElementById('path4'),
+  path4: document.getElementById('path5'),
+};
+
+function updateFillPaths() {
+const image = document.querySelector('.img-r');
+
+if (!image) {
+  console.log('notfound');
+  return;
+}
+const rotationText = document.getElementById('info-text');
+
+
+  const computedStyle = window.getComputedStyle(image, null);
+  const transform = computedStyle.getPropertyValue('transform');
+  const matrix = new DOMMatrix(transform);
+  const currentRotation = matrix.rotate(2); 
+
+  const currentRotationRadians = Math.atan2(matrix.b, matrix.a);
+  const currentRotationDegrees = (currentRotationRadians * 180) / Math.PI;
+
+
+  if (currentRotationDegrees >= 20 && currentRotationDegrees < 32.5) {
+    paths.path4.style.fill= 'none';
+    paths.path3.style.fill= 'none';
+    paths.path2.style.fill= 'none';
+    paths.path1.style.fill= '#00ff36';
+    rotationText.textContent = 'montáž a zariadenie zadarmo';
+  } else if (currentRotationDegrees >= 32.5 && currentRotationDegrees < 45) {
+    paths.path1.style.fill= 'none';
+    paths.path2.style.fill= '#00ff36';
+    paths.path3.style.fill= 'none';
+    paths.path4.style.fill= 'none';
+    rotationText.textContent = 'pripojenie do 24hodín';
+  } else if (currentRotationDegrees >= 45 && currentRotationDegrees < 52.5) {
+    paths.path2.style.fill= 'none';
+    paths.path1.style.fill= 'none';
+    paths.path4.style.fill= 'none';
+    paths.path3.style.fill= '#00ff36';
+    rotationText.textContent = 'služby bez viazanosti';
+  } else {
+    paths.path3.style.fill= 'none';
+    paths.path4.style.fill= '#00ff36';
+    paths.path1.style.fill= 'none';
+    paths.path2.style.fill= 'none';
+    rotationText.textContent = 'bezplatný servis do 24 hodín od nahlásenia poruchy';
+  }
+}
+
+setInterval(updateFillPaths, 400);
+
+
+
+
+
+
 const svgMap = document.getElementById('svg-m');
 const svg = svgMap.querySelector('#svg1');
 
