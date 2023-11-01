@@ -53,6 +53,9 @@ opacity:1;
 }
 .pt h4{font-weight:normal;color:#47a1d6 }
 .pt:last-child h2{margin-top: 60px}
+.pt:last-of-type h3:last-of-type{
+  margin-bottom: 150px;
+}
 
 .location-image{cursor: pointer;}
 
