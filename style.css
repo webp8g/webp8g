@@ -9,6 +9,7 @@ body{
     background-color: #001f24;
     color: rgb(214, 214, 214);
     overflow-x: hidden;
+    font-size: 15px;
 }
 
 #con {
