@@ -82,4 +82,7 @@ button a{
 @media (max-width: 880px){
     .p1{font-size: 5vw;}
     .desc{font-size: 3.5vw}
+    .b h2{font-size:5w;}
+    .b p{margin-top:30px}
+    .col button{margin-bottom:none}
 }
