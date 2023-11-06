@@ -89,7 +89,7 @@ const rotationText = document.getElementById('info-text');
 
 if(image){
 setInterval(updateFillPaths, 400);
-}
+};
 
 
 
