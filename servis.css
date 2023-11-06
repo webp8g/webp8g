@@ -71,3 +71,8 @@ opacity:1;
   #map{height: 80vw;}
   .pt{padding: 40px;font-size: 4vw;}
 }
+
+.mp{font-weight:normal; color:#00ffe7;}
+@media (max-width: 880px){
+    .mp{font-size:3.5vw}
+}
