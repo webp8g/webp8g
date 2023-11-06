@@ -5,7 +5,7 @@
     margin-bottom: 80px;
   }
 .container p{
-    color: #333;
+    color: #00ff33;
 }
 
 .container h2{
@@ -18,7 +18,7 @@
     border-radius: 1rem;
     height: min-content;
   }
-.contact-info a{text-decoration: none;color: #3b3b3b;}
+.contact-info a{text-decoration: none;color: #00ff33;}
 
   .contact-form {
     width: 48%;
