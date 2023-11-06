@@ -1,8 +1,8 @@
 main p{padding: initial;}
 
 
-.p1{font-size: 5vw;margin-top: 0;color:#1eacff;}
-.desc{font-weight:normal;color:#ffffff}
+.p1{font-size: 1.4rem;margin-top: 0;color:#1eacff;}
+.desc{font-size: 1rem;font-weight:normal;color:#ffffff}
 .b {
     padding: 25px;
     border: 3px solid #009dff;
@@ -77,4 +77,9 @@ button a{
         margin: 0 auto 20px;
     }
     p{padding: 50px;}
+}
+
+@media (max-width: 880px){
+    .p1{font-size: 5vw;}
+    .desc{font-size: 3.5vw}
 }
