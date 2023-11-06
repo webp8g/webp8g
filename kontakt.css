@@ -44,6 +44,7 @@
     box-sizing: border-box;
     border: none;
     border-radius: none;
+    border-bottom: 3px solid #00ffef;
     background-color: transparent;
     color: #00ffc0;
     font-weight:bold;
