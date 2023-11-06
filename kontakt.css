@@ -10,6 +10,7 @@
 
 .container h2{
     margin: 0 0 30px;
+    color: #00ffe7;
 }
 
   .contact-info {
@@ -25,8 +26,8 @@
   }
   .contact-form,.contact-info{
     padding: 50px;
-    background-color: #addcd6;
-    color: #3b3b3b;
+    color: #007d91;
+    border: 3px solid #00ffef;
   }
   
   .contact-form label {
@@ -42,10 +43,14 @@
     margin-bottom: 10px;
     box-sizing: border-box;
     border: none;
-    border-radius: 1rem;
-    background-color: #333;
-    color: #1dd755;
+    border-radius: none;
+    background-color: transparent;
+    color: #00ffc0;
+    font-weight:bold;
   }
+    .contact-form select{
+        background-color: #008ff8;
+    }
   .contact-form input[type="submit"] {
     background-color: #1dd755;
     color: #333;
