@@ -115,6 +115,7 @@ main p{margin: 50px 0 0; width: 320px;font-size: 1rem;color: #e1e1e1;
 
 
 .info {padding: 0 10%;padding-bottom: 50px;color: #2cbdbd;}
+.info p{color: #00ffe7;}
 .h-i{
     margin: 50px 0;
     color: #1dd755;
@@ -343,7 +344,7 @@ footer p{
     #svg4{
         width: 25vw;
         left: 2vw;
-        top: 16.5vw;
+        top: 14vw;
     }
     #info-text{font-size: 4vw;}
     .dh{ top: 20vw;
