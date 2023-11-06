@@ -45,14 +45,9 @@ const paths = {
   path3: document.getElementById('path4'),
   path4: document.getElementById('path5'),
 };
-
-function updateFillPaths() {
 const image = document.querySelector('.img-r');
 
-if (!image) {
-  console.log('notfound');
-  return;
-}
+function updateFillPaths() {
 const rotationText = document.getElementById('info-text');
 
 
@@ -92,8 +87,9 @@ const rotationText = document.getElementById('info-text');
   }
 }
 
+if(image){
 setInterval(updateFillPaths, 400);
-
+}
 
 
 
