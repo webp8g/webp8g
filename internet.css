@@ -1,7 +1,8 @@
 main p{padding: initial;}
 
 
-.p1{font-size: 2rem;margin-top: 0;}
+.p1{font-size: 1.4rem;margin-top: 0;color:#1eacff;}
+.desc{font-weight:normal;color:#ffffff}
 .b {
     padding: 25px;
     border: 3px solid #009dff;
@@ -43,6 +44,7 @@ main p{padding: initial;}
 
 .ch{margin: 30px 0 ;}
 
+.col{align-self:center;}
 .col button{
     width: 100%;
     height: 10vh;
