@@ -53,6 +53,9 @@
         background-color: #008ff8;
         border:none;
     }
+    select:first-child(){
+        color:gray;
+    }
   .contact-form input[type="submit"] {
     background-color: #1dd755;
     color: #333;
