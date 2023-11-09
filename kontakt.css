@@ -54,7 +54,7 @@
         border:none;
     }
     select:first-child(){
-        color:gray;
+        color:black;
     }
   .contact-form input[type="submit"] {
     background-color: #1dd755;
