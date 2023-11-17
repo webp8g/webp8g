@@ -8,6 +8,7 @@ main p{padding: initial;}
     border: 3px solid #009dff;
     border-radius: 20px;
     background-color: #f6f5dd;
+    max-height: 400px;
 }
 .b p{
     animation: none;
@@ -44,6 +45,15 @@ main p{padding: initial;}
 
 .ch{margin: 30px 0 ;}
 
+.zob{
+    margin: 10px 0 0 30px ;
+    font-size: 0.7rem ;
+    color: #717171;
+    cursor:pointer;
+    font-weight: bold;
+}
+
+
 .col{align-self:center;}
 .col button{
     width: 100%;
@@ -66,7 +76,6 @@ button a{
     color: #fafafa;
 }
 
-
 @media (max-width: 1090px){
     .row{
         display: block;
@@ -83,6 +92,7 @@ button a{
     .p1{font-size: 5vw;}
     .desc{font-size: 3.5vw}
     .b h2{font-size:5vw;}
+    .zob{font-size: 2.6vw;}
     .col button{margin-bottom:none}
     .p-check {font-size: 2.9vw}
     .ch{margin:20px 0}
