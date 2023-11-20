@@ -375,12 +375,15 @@
         var bElement = zobElement.closest('.b');
         var gridElement = zobElement.closest('.image-grid');
         var imgElementsInGrid = gridElement.querySelectorAll('img');
-        var notSelector = ':not(' + gridElement.tagName.toLowerCase() + ')';
-        var bChildren = bElement.querySelectorAll(notSelector);
+        var notSelector = ':not(' + gridElement.tagName.toLowerCase() + ')';    
+        var bChildren = bElement.querySelectorAll(notSelector + ', div.ch');
 
         console.log(bChildren);
 
-      zobElement.addEventListener('mouseover', function() {
+
+
+
+      function handleMouseOverAndTouchStart(e)  {
         bElement.style.transition = 'background 0.5s, opacity 0.1s'; 
         bElement.style.background = 'rgb(65, 65, 65)';
         bElement.style.borderColor = '#00ffe7';
@@ -395,22 +398,34 @@
         gId = gridElement.id;
         var mId = 'imageData' + gId.charAt(gId.length -1) ;
         var imageDataArray = window[mId];
+
+
         generateImageGrid(imageDataArray, gId);
 
-      });
+      };
 
 
 
 
       
 
-        bElement.addEventListener('mouseout', function(e) {
+      function handleMouseOutAndTouchEnd(e) {
 
             
 
             if (!bElement.contains(e.relatedTarget) && e.relatedTarget !== zobElement) {
                 var images = document.getElementsByTagName('img');
+                var allChildren = Array.from(gridElement.children);
+
+
+                allChildren.forEach(function(child) {
+            if (!Array.from(bChildren).includes(child)) {
+                console.log(child);
+                child.remove();
+            }
+        });
                 
+
                 for (var i = 0; i < images.length; i++) {
                     images[i].style.display = 'none';
                 }
@@ -431,9 +446,15 @@
             bChildren[i].style.opacity = 1; 
           }
     }
-      });
-    });
+      };
 
+      zobElement.addEventListener('mouseover', handleMouseOverAndTouchStart);
+      zobElement.addEventListener('touchstart', handleMouseOverAndTouchStart);
+    bElement.addEventListener('mouseout', handleMouseOutAndTouchEnd);
+    bElement.addEventListener('touchend', handleMouseOutAndTouchEnd);
+
+
+    });
       </script>
 </body>
 </html>
