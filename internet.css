@@ -56,7 +56,7 @@ main p{padding: initial;}
 
 .col{align-self:center;}
 .col button{
-    width: 100%;
+    width: 19vw;
     height: 50px;
     border-radius: 1rem;
     border: none;
@@ -97,4 +97,8 @@ button a{
     .p-check {font-size: 2.9vw}
     .ch{margin:20px 0}
     .b .p{margin-top: 30px}
+    .col button {width: 54vw;}
+    .image-grid{height: 58vw;}
+    .image-grid img {width: 10px;}
 }
+
