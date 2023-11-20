@@ -59,7 +59,7 @@
                     <span class="check"></span><p class="p-check">37 programov</p>
                     <span class="zob">zobraziť ponuku</span>
                 </div>
-                <button><a href="kontakt.html">Chcem pripojiť</a></button>
+                <button class="connect"><a href="kontakt.html">Chcem pripojiť</a></button>
                 </div>
             </div>
             <div class="col b">
@@ -70,7 +70,7 @@
                     <span class="check"></span><p class="p-check">80 programov</p>
                     <span class="zob">zobraziť ponuku</span>
                 </div>
-                <button><a href="kontakt.html">Chcem pripojiť</a></button>
+                <button class="connect"><a href="kontakt.html">Chcem pripojiť</a></button>
                 </div>
             </div>
             <div class="col b">
@@ -81,7 +81,7 @@
                     <span class="check"></span><p class="p-check">114 programov</p>
                     <span class="zob">zobraziť ponuku</span>
                 </div>
-                <button><a href="kontakt.html">Chcem pripojiť</a></button>
+                <button class="connect"><a href="kontakt.html">Chcem pripojiť</a></button>
                 </div>
             </div>
         </div>
@@ -331,7 +331,6 @@
             
 
          var zobElements = document.querySelectorAll('.zob');
-         let topPosition = 280;
 
 
         function generateImageGrid(imageData, containerId) {
@@ -340,6 +339,7 @@
       var imgElement = document.createElement('img');
       imgElement.src = image.path;
       imgElement.alt = image.name;
+
 
       imgElement.style.width = '50px';
     imageGrid.style.display = 'flex';
@@ -351,13 +351,21 @@
         imageGrid.style.paddingBottom = '20px';
         imageGrid.style.overflowX = 'hidden';
         imageGrid.style.overflowY = 'scroll';
-      
+
+        
+        if (window.matchMedia('(max-width: 880px)').matches) {
+        imgElement.style.width = '12vw';
+        imageGrid.style.width = '64vw';
+      }
 
 
       var imageContainer = document.createElement('div');
       imageContainer.style.marginBottom = '20px'; 
       imageContainer.style.position = 'relative';
-      imageContainer.style.top = `-${topPosition}px`;
+      imageContainer.style.top = '-300px';
+      if (window.matchMedia('(max-width: 880px)').matches) {
+        imageContainer.style.top = '-250px';
+      }
       imageContainer.appendChild(imgElement);
 
       imageGrid.appendChild(imageContainer);
@@ -377,8 +385,6 @@
         var imgElementsInGrid = gridElement.querySelectorAll('img');
         var notSelector = ':not(' + gridElement.tagName.toLowerCase() + ')';    
         var bChildren = bElement.querySelectorAll(notSelector + ', div.ch');
-
-        console.log(bChildren);
 
 
 
@@ -410,7 +416,6 @@
       
 
       function handleMouseOutAndTouchEnd(e) {
-
             
 
             if (!bElement.contains(e.relatedTarget) && e.relatedTarget !== zobElement) {
@@ -420,7 +425,6 @@
 
                 allChildren.forEach(function(child) {
             if (!Array.from(bChildren).includes(child)) {
-                console.log(child);
                 child.remove();
             }
         });
