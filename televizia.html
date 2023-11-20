@@ -344,12 +344,10 @@
       imgElement.style.width = '50px';
     imageGrid.style.display = 'flex';
     imageGrid.style.flexWrap = 'wrap';
-    imageGrid.style.zIndex = 10;
         imageGrid.style.gap = '10px';
         imageGrid.style.width = '260px';
         imageGrid.style.maxHeight = '270px';
         imageGrid.style.paddingBottom = '20px';
-        imageGrid.style.overflowX = 'hidden';
         imageGrid.style.overflowY = 'scroll';
 
         
@@ -408,6 +406,10 @@
 
         generateImageGrid(imageDataArray, gId);
 
+
+        if (e.type === 'touchstart') {
+        e.preventDefault();
+    }
       };
 
 
@@ -427,6 +429,8 @@
             if (!Array.from(bChildren).includes(child)) {
                 child.remove();
             }
+
+            gridElement.style.overflow = 'visible';
         });
                 
 
@@ -440,7 +444,7 @@
         bElement.style.background = '#f6f5dd';
         bElement.style.borderColor = '#009dff';
 
-        gridElement.style.overflow = 'hidden';
+        gridElement.style.overflowX = 'visible';
 
         gridElement.style.display = 'block';
         gridElement.scrollTop = 0;
@@ -449,6 +453,10 @@
             for (var i = 0; i < bChildren.length; i++) {
             bChildren[i].style.opacity = 1; 
           }
+
+          if (e.type === 'touchend') {
+        e.preventDefault();
+    }
     }
       };
 
