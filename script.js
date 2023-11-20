@@ -94,6 +94,22 @@ setInterval(updateFillPaths, 400);
 
 
 
+var buttons = document.querySelectorAll(".connect");
+
+if(buttons){
+buttons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    var link = button.querySelector('a');
+
+    if (link) {
+      link.click();
+    }
+  });
+});
+}
+
+
+
 
 const svgMap = document.getElementById('svg-m');
 const svg = svgMap.querySelector('#svg1');
