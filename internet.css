@@ -22,7 +22,7 @@ main p{padding: initial;}
 
 .row{display: flex;flex-direction:row; justify-content: space-between;margin-bottom: 100px;}
 .col{width:30%;transform: scale(0);animation: sct 1s linear forwards 1s;}
-
+.no-select{user-select: none;}
 .p-check{
     font-weight: 400;
     font-size: 0.8rem;
