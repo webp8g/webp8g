@@ -417,7 +417,8 @@
       function handleMouseOutAndTouchEnd(e) {
             
 
-            if (!bElement.contains(e.relatedTarget) && e.relatedTarget !== zobElement) {
+           if ((!bElement.contains(e.relatedTarget) && e.relatedTarget !== bElement) &&
+            (e.type === 'touchend' && !bElement.contains(document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY)))) {
                 var images = document.getElementsByTagName('img');
                 var allChildren = Array.from(gridElement.children);
 
