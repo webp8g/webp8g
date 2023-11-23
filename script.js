@@ -181,6 +181,8 @@ function toggleAnswer(questionElement) {
 }
 
 
+
+if(svgmap){
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
 document.addEventListener('mouseup', endPan);
@@ -325,4 +327,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
-
+};
