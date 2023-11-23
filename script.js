@@ -182,7 +182,7 @@ function toggleAnswer(questionElement) {
 
 
 
-if(svgmap){
+if(svgMap){
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
 document.addEventListener('mouseup', endPan);
