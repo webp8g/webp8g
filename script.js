@@ -110,7 +110,6 @@ buttons.forEach(function(button) {
 
 
 
-
 const svgMap = document.getElementById('svg-m');
 const svg = svgMap.querySelector('#svg1');
 
@@ -182,7 +181,6 @@ function toggleAnswer(questionElement) {
 
 
 
-if(svgMap){
 svgMap.addEventListener('mousedown', startPan);
 document.addEventListener('mousemove', pan);
 document.addEventListener('mouseup', endPan);
