@@ -337,22 +337,23 @@
           bChildren[i].style.opacity = 0;
         }
 
-        
-        gId = gridElement.id;
-        var mId = 'imageData' + gId.charAt(gId.length -1) ;
+       gId = gridElement.id;
+        gIndex = parseInt(gId.charAt(gId.length -1)) ;
+        var mId = 'imageData' + gIndex;
         var imageDataArray = window[mId];
+        var accumulatedImageData = [];
 
+        for (var i = 1; i <= gIndex; i++){
+            var currentId = 'gridElement' + i;
+            var currentImageData = window['imageData' + i];
 
-        generateImageGrid(imageDataArray, gId);
-
-        var newP = document.createElement("p");
-        newP.textContent = "a ďalšie ...";
-        newP.style.textAlign = 'center';
-        newP.style.color = '#1dd755';
-        newP.style.marginTop = '-280px';
-        newP.style.fontWeight = '600';
-        gridElement.appendChild(newP);
-
+             if (currentImageData) {
+                accumulatedImageData = accumulatedImageData.concat(currentImageData)
+            } else {
+                console.log('No imageData found for ' + currentId);
+            }
+        }
+        generateImageGrid(accumulatedImageData, gId);
 
       };
 
