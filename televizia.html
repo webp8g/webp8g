@@ -318,7 +318,6 @@
             zobElement.addEventListener('touchstart', handleMouseOverAndTouchStart);
         Array.from(main.children).forEach(function(child) {
             if (child !== zobElement) {
-                console.log(child);
                 child.addEventListener('touchend', handleMouseOutAndTouchEnd);
             }
        });
