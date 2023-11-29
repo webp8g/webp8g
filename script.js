@@ -111,7 +111,7 @@ buttons.forEach(function(button) {
 
 
 const svgMap = document.getElementById('svg-m');
-const svg = svgMap.querySelector('#svg1');
+const svg = document.querySelector('#svg1');
 
 let isDragging = false;
 let startPoint = { x: 0, y: 0 };
@@ -121,6 +121,7 @@ let zoomLevel = 1.0;
 const maxZoom = 6.0;
 const minZoom = 1.0;
 
+if(svgMap){
 function zoom(direction) {
   if (direction === 'in' && zoomLevel < maxZoom) {
     zoomLevel *= 1.2;
@@ -325,3 +326,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+}
