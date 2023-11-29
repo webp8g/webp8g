@@ -256,8 +256,10 @@
 
             
 
-         var zobElements = document.querySelectorAll('.zob');
-         var isTouchDevice = 'ontouchstart' in document.documentElement;
+        var zobElements = document.querySelectorAll('.zob');
+        var isTouchDevice = 'ontouchstart' in document.documentElement;
+        var main = document.querySelector('main');
+
 
 
         function generateImageGrid(imageData, containerId) {
@@ -313,9 +315,14 @@
 
 
         if (isTouchDevice) {    
-
             zobElement.addEventListener('touchstart', handleMouseOverAndTouchStart);
-            document.addEventListener('touchend', handleMouseOutAndTouchEnd);
+        Array.from(main.children).forEach(function(child) {
+            if (child !== zobElement) {
+                console.log(child);
+                child.addEventListener('touchend', handleMouseOutAndTouchEnd);
+            }
+       });
+
         }else {
             zobElement.addEventListener('mouseover', handleMouseOverAndTouchStart);
             document.addEventListener('mouseout', handleMouseOutAndTouchEnd);
