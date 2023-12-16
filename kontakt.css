@@ -72,6 +72,17 @@
   .contact-info svg {
     margin-right: 10px;
   }
+  .tel {
+    width: 90%;
+    float: right;
+    margin-top:-50px ;
+    text-align: right;
+  }
+  .tel span{
+    font-size: 0.88rem;
+    color: #0095ff;
+  }
+
 
 
   @media (max-width: 880px){
