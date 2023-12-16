@@ -52,6 +52,44 @@ main p{padding: initial;}
     cursor:pointer;
     font-weight: bold;
 }
+.pI{
+    width: 105vw;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+    left: -10vw;
+    background-color: #121212c4;
+}
+.pI a{
+    text-decoration: none;
+    color: #2cff88;
+}
+.pI a:hover{
+    font-weight: bold;
+}
+.tb{
+    margin: 100px auto;
+    width: 50vw;
+    text-align: center;
+    background-color: #121212c4;
+}
+.tb tr{
+    height: 50px;
+}
+.tb th{
+    font-size: 1.3rem;
+    color: #1dd755 
+}
+.tb td{
+    font-size: 0.9rem;
+    color: #009c70  ;
+}
+.tb tr, th, td{
+    border-collapse: collapse;
+    border: 2px solid #0ddb5f;
+}
 
 
 .col{align-self:center;}
@@ -100,5 +138,6 @@ button a{
     .col button {width: 54vw;}
     .image-grid{height: 58vw;}
     .image-grid img {width: 10px;}
+    .pI{width: 100vw;left: 0;}
 }
 
