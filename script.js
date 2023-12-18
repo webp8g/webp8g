@@ -108,6 +108,14 @@ buttons.forEach(function(button) {
 });
 }
 
+function toggleAnswer(questionElement) {
+  var answerElement = questionElement.nextElementSibling;
+  if (answerElement.style.display === 'none'|| answerElement.style.display === '') {
+      answerElement.style.display = 'block';
+  } else {
+      answerElement.style.display = 'none';
+  }
+}
 
 
 const svgMap = document.getElementById('svg-m');
@@ -145,8 +153,11 @@ function pan(event) {
   if (!isDragging) return;
 
   const currentPoint = getEventPoint(event);
-  panX += currentPoint.x - startPoint.x;
-  panY += currentPoint.y - startPoint.y;
+  const deltaX = currentPoint.x - startPoint.x;
+  const deltaY = currentPoint.y - startPoint.y;
+  panX += deltaX / zoomLevel;
+  panY += deltaY / zoomLevel;
+  
   startPoint = currentPoint;
 
   svg.style.transform = `scale(${zoomLevel}) translate(${panX}px, ${panY}px)`;
@@ -171,14 +182,6 @@ function getEventPoint(event) {
 }
 
 
-function toggleAnswer(questionElement) {
-  var answerElement = questionElement.nextElementSibling;
-  if (answerElement.style.display === 'none'|| answerElement.style.display === '') {
-      answerElement.style.display = 'block';
-  } else {
-      answerElement.style.display = 'none';
-  }
-}
 
 
 
